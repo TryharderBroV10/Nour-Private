@@ -6,7 +6,7 @@ local Players = game:GetService("Players")
 local player = Players.LocalPlayer
  
 local window = library:AddWindow("Nour | The Dragon 🐉♥️", {
-    main_color = Color3.fromRGB(66, 164, 115), -- Custom emerald green color
+    main_color = Color3.fromRGB(0, 0, 0), -- Color,
     min_size = Vector2.new(700, 900),
     can_resize = true,
 })
