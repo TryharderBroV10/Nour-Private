@@ -22,7 +22,7 @@ if _G.MainScriptLoaded then
 
  if not isWhitelisted then
      warn("❌ Access denied for ID:", playerId)
-     player:Kick("🚫 You are not allowed to use this script")
+     player:Kick("🚫 انقلع بس من اول أقول اعطيني حسابك")
      return
  end
 -- Naif. Is The G.O.A.T
