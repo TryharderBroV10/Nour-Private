@@ -19,11 +19,17 @@ mainTab:Show()
  
 mainTab:AddLabel("Main Features")
  
-mainTab:AddTextBox("Unlimited Speed", function(bool)
-    if bool then
-local player = game.Players.LocalPlayer
-local character = player.Character
-character.Humanoid.WalkSpeed = 1000 -- adjust the speed value as needed
+mainTab:AddTextBox("Unlimited Speed", function(value)
+    local selectedSpeed = value
+ 
+    _G.AutoSpeed = true
+ 
+    if _G.AutoSpeed then
+        if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = tonumber(selectedSpeed)
+        end
+    end
+end)
 
 
 
