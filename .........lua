@@ -1,32 +1,3 @@
-if _G.MainScriptLoaded then
-     warn("🚫 Main script already loaded. Preventing duplicate execution.")
-     return
- end
- _G.MainScriptLoaded = true
-
- local whitelist = { 4649811121, 6230225552, 2842708872, 4714810176, 7117568917, 1906427425, 4513303412, 3247087089, 7388873906, 6141086293, 5388474539, 3274533589,
- } 
-
- local player = game.Players.LocalPlayer
- local playerId = player.UserId
-
- print("👤 Player ID detected:", playerId)
-
- local isWhitelisted = false
- for _, id in ipairs(whitelist) do
-     if id == playerId then
-         isWhitelisted = true
-         break
-     end
- end
-
- if not isWhitelisted then
-     warn("❌ Access denied for ID:", playerId)
-     player:Kick("🚫 انقلع بس من اول أقول اعطيني حسابك")
-     return
- end
--- Naif. Is The G.O.A.T
-
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/memejames/elerium-v2-ui-library//main/Library", true))()
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
@@ -46,12 +17,13 @@ local statsTab = window:AddTab("Stats")
 local performanceTab = window:AddTab("Performance")
 local rebirth = window:AddTab("Rebirth")
 local pets = window:AddTab("Pets")
+local credit = window:AddTab("Credits")
  
 mainTab:Show()
  
 mainTab:AddLabel("Main Features")
  
-local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Eggs", function(bool)
+local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Egg (Every 30 Minutes)", function(bool)
     _G.AutoEgg = bool
  
     if bool then
@@ -72,7 +44,7 @@ local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Eggs", function(bool)
                     end
                 end
  
-                task.wait(1)
+                task.wait(1800)
             end
         end)
     end
@@ -1348,7 +1320,7 @@ pets:AddSwitch("Auto Open Pet", function(bool)
                 if petToOpen then
                     ReplicatedStorage.cPetShopRemote:InvokeServer(petToOpen)
                 end
-                task.wait(1)
+                task.wait(0.001)
             end
         end)
     end
@@ -1401,8 +1373,12 @@ pets:AddSwitch("Auto Open Aura", function(bool)
                 if auraToOpen then
                     ReplicatedStorage.cPetShopRemote:InvokeServer(auraToOpen)
                 end
-                task.wait(1)
+                task.wait(0.001)
             end
         end)
     end
 end)
+
+credit:AddLabel("تحية لـ فارس عشان هو سوا السكربت")
+
+credit:AddLabel("<3")
