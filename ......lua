@@ -31,7 +31,7 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
  
-local window = library:AddWindow("Boosters Script 🚀| H3LL Script", {
+local window = library:AddWindow("Coach-Hub | Boosters Version", {
     main_color = Color3.fromRGB(121, 0, 255), -- Custom emerald green color
     min_size = Vector2.new(700, 900),
     can_resize = true,
@@ -45,12 +45,12 @@ local statsTab = window:AddTab("Stats")
 local performanceTab = window:AddTab("Performance")
 local rebirth = window:AddTab("Rebirth")
 local pets = window:AddTab("Pets")
- 
+local credits = window:AddTab("Credits")
 mainTab:Show()
  
 mainTab:AddLabel("Main Features")
  
-local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Eggs", function(bool)
+local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Eggs (every 30 minutes)", function(bool)
     _G.AutoEgg = bool
  
     if bool then
@@ -71,7 +71,7 @@ local autoEatEggsSwitch = mainTab:AddSwitch("Auto Eat Eggs", function(bool)
                     end
                 end
  
-                task.wait(1)
+                task.wait(1800)
             end
         end)
     end
@@ -1104,9 +1104,9 @@ end
 -- Update stats initially
 updateStats()
  
--- Update stats every 2 seconds
+-- Update stats every 0.001 seconds
 spawn(function()
-    while wait(2) do
+    while wait(0.001) do
         updateStats()
     end
 end)
@@ -1369,7 +1369,7 @@ pets:AddSwitch("Auto Open Pet", function(bool)
                 if petToOpen then
                     ReplicatedStorage.cPetShopRemote:InvokeServer(petToOpen)
                 end
-                task.wait(1)
+                task.wait(0.2)
             end
         end)
     end
@@ -1422,8 +1422,12 @@ pets:AddSwitch("Auto Open Aura", function(bool)
                 if auraToOpen then
                     ReplicatedStorage.cPetShopRemote:InvokeServer(auraToOpen)
                 end
-                task.wait(1)
+                task.wait(0.2)
             end
         end)
     end
 end)
+
+credits:AddLabel("Thank you for boosting the server <3")
+
+credits:AddLabel("The Script Made By F-518 :)")
